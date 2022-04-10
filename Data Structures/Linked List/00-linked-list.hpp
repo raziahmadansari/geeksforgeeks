@@ -36,4 +36,7 @@ class LinkedList
 
     // swap nodes not data
     void swap(int x, int y);
+
+    // reverese list
+    void reverse();
 };

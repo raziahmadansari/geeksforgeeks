@@ -217,3 +217,24 @@ void LinkedList::swap(int x, int y)
     currY->next = currX->next;
     currX->next = temp;
 }
+
+void LinkedList::reverse()
+{
+    // check if list is empty
+    if (head == NULL)
+        return;
+    
+    Node* prev = NULL;
+    Node* curr = head;
+    Node* next = NULL;
+
+    while (curr != NULL)
+    {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    head = prev;
+}
