@@ -30,4 +30,7 @@ class LinkedList
     // length of list
     // recursive method
     int length(Node* node);
+
+    // add X to every linked list node
+    void addXtoList(int num);
 };

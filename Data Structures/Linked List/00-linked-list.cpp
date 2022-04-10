@@ -146,6 +146,21 @@ int LinkedList::length(Node* node)
     {
         return 0;
     }
-    
+
     return 1 + length(node->next);
+}
+
+void LinkedList::addXtoList(int num)
+{
+    if (head == NULL)
+    {
+        std::cout << "List is empty!\n";
+    }
+
+    Node* node = head;
+    while (node != NULL)
+    {
+        node->data += num;
+        node = node->next;
+    }
 }
