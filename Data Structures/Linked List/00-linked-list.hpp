@@ -12,6 +12,8 @@ class LinkedList
     
     void push(int data);
 
+    void pushDefaultData();
+
     void printList();
 
     void deleteNode(int key);
@@ -20,4 +22,12 @@ class LinkedList
 
     // deletes node at specified position
     void deleteNodeAt(int position);
+
+    // length of linked list
+    // iterative method
+    int length();
+
+    // length of list
+    // recursive method
+    int length(Node* node);
 };

@@ -9,13 +9,31 @@ void LinkedList::push(int data)
     head = new_node;
 }
 
+void LinkedList::pushDefaultData()
+{
+    if (head != NULL)
+    {
+        std::cout << "List already initialized!\n";
+        return;
+    }
+
+    for (int i = 10; i >= 1; i--)
+    {
+        LinkedList::push(i * 10);
+    }
+}
+
 void LinkedList::printList()
 {
     Node* node = head;
     while (node != NULL)
     {
-        std::cout << node->data << " ";
+        std::cout << node->data;
         node = node->next;
+        if (node != NULL)
+        {
+            std::cout << " -> ";
+        }
     }
     std::cout << "\n";
 }
@@ -107,4 +125,27 @@ void LinkedList::deleteNodeAt(int position)
     free(temp->next);
     temp->next = next;
     return;
+}
+
+int LinkedList::length()
+{
+    int count = 0;
+    Node* node = head;
+    while (node != NULL)
+    {
+        count++;
+        node = node->next;
+    }
+
+    return count;
+}
+
+int LinkedList::length(Node* node)
+{
+    if (node == NULL)
+    {
+        return 0;
+    }
+    
+    return 1 + length(node->next);
 }
