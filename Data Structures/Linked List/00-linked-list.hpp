@@ -33,4 +33,7 @@ class LinkedList
 
     // add X to every linked list node
     void addXtoList(int num);
+
+    // swap nodes not data
+    void swap(int x, int y);
 };

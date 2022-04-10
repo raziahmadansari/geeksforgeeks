@@ -164,3 +164,56 @@ void LinkedList::addXtoList(int num)
         node = node->next;
     }
 }
+
+void LinkedList::swap(int x, int y)
+{
+    // nothing to do if x and y are equal
+    if (x == y)
+        return;
+
+    Node* prevX = NULL;
+    Node* currX = head;
+    while (currX != NULL && currX->data != x)
+    {
+        prevX = currX;
+        currX = currX->next;
+    }
+
+    Node* prevY = NULL;
+    Node* currY = head;
+    while (currY != NULL && currY->data != y)
+    {
+        prevY = currY;
+        currY = currY->next;
+    }
+
+    // if either of x or y not present,
+    // nothing to do
+    if (currX == NULL || currY == NULL)
+        return;
+
+    // if x is not head of linked list
+    if (prevX != NULL)
+    {
+        prevX->next = currY;
+    }
+    else // make y as new head
+    {
+        head = currY;
+    }
+
+    // if y is not head of linked list
+    if (prevY != NULL)
+    {
+        prevY->next = currX;
+    }
+    else // make x as new head
+    {
+        head = currX;
+    }
+
+    // swap next pointers
+    Node* temp = currY->next;
+    currY->next = currX->next;
+    currX->next = temp;
+}
